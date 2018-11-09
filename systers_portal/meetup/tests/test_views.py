@@ -2008,8 +2008,7 @@ class UpcomingMeetupsSearchViewTestCase(MeetupLocationViewBaseTestCase, TestCase
                            'distance': '',
                            'unit': ''}]})
 
-        data1 = {'date': '2018-06-13', 'meeetup_location': 'Foo Systers1', 'keyword': 'test',
-                 'filter': 'distance'}
+        data1 = {'date': '2018-06-13', 'meeetup_location': 'Foo Systers1', 'keyword': 'test'}
         response = self.client.post(url, data1, format='json')
         self.assertEqual(json.loads(response.content.decode('utf-8')),
                          {'search_results':
@@ -2018,8 +2017,8 @@ class UpcomingMeetupsSearchViewTestCase(MeetupLocationViewBaseTestCase, TestCase
                            'location': 'Foo Systers1',
                            'location_slug': 'foob',
                            'meetup_slug': 'foobarbaz',
-                           'distance': 2800,
-                           'unit': 'kilometers from your location'}]})
+                           'distance': '',
+                           'unit': ''}]})
 
         data2 = {'date': '2018-06-12', 'meeetup_location': 'Meetup Location'}
         response = self.client.post(url, data2, format='json')

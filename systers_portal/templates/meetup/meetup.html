@@ -3,10 +3,16 @@
 {% block meetup_location_page_content %}
   <h2 id="meetup-title">{{ meetup.title }}</h2>
   <div class="box-container box-body pt25">
-    <p> 
+    <p>
       <b> Date: </b> {{ meetup.date }}
-      &nbsp; &nbsp; 
+      {% if meetup.end_date %}
+      <b> EndDate: </b> {{ meetup.end_date }}
+      {% endif %}
+      &nbsp; &nbsp;
       <b>Time: </b> {{ meetup.time|time:"H:i" }}
+      {% if meetup.end_time %}
+      <b>Time: </b> {{ meetup.end_time|time:"H:i" }}
+      {% endif %}
     </p>
     <p>
       <b> Venue: </b> {{ meetup.venue }}
@@ -27,7 +33,7 @@
           <td>{{ not_coming_no }}</td>
         </tr>
       </tbody>
-    </table> 
+    </table>
     <hr>
     {% include 'meetup/snippets/share_buttons.html' %}
     <p>
